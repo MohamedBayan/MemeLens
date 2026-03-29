@@ -5,9 +5,18 @@
 [![Paper](https://img.shields.io/badge/arXiv-2601.12539-b31b1b.svg)](https://arxiv.org/abs/2601.12539)
 [![Dataset](https://img.shields.io/badge/HuggingFace-Dataset-yellow)](https://huggingface.co/datasets/QCRI/MemeLens-VLM)
 [![Model](https://img.shields.io/badge/HuggingFace-Model-blue)](https://huggingface.co/QCRI/MemeLens-VLM)
-[![Original Dataset](https://img.shields.io/badge/HuggingFace-MemeLens-green)](https://huggingface.co/datasets/QCRI/MemeLens)
+[![License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc/4.0/)
+[![Python 3.10](https://img.shields.io/badge/Python-3.10-blue.svg)](https://www.python.org/downloads/)
 
 MemeLens consolidates **38 public meme datasets** into a unified benchmark covering **46 classification tasks** across **9 languages** (Arabic, Bengali, Chinese, English, German, Hindi, Romanian, Russian, Spanish), enriched with LLM-generated explanations and LLM-as-Judge quality scores.
+
+<p align="center">
+  <img src="assets/memelens_task_dataset.png" alt="MemeLens Data Construction Overview" width="85%"/>
+</p>
+
+<p align="center">
+  <img src="assets/Language_Task.png" alt="Task and Language Distribution" width="50%"/>
+</p>
 
 ## Table of Contents
 
@@ -97,16 +106,75 @@ python data/download_dataset.py --list
 
 ## Installation
 
+### Prerequisites
+
+- Linux (tested on Ubuntu 20.04/22.04)
+- Python 3.10
+- CUDA 12.x with a compatible GPU (training requires 4x H200/A100; inference works on a single GPU with >= 24GB VRAM)
+- [Conda](https://docs.conda.io/en/latest/miniconda.html) (recommended) or pip
+
+### Setting Up the Environment
+
+**1. Clone the repository:**
+
 ```bash
 git clone https://github.com/QCRI/MemeLens.git
 cd MemeLens
+```
+
+**2. Create and activate a Conda environment:**
+
+```bash
+conda create -n memelens python=3.10 -y
+conda activate memelens
+```
+
+**3. Install PyTorch (CUDA 12.x):**
+
+```bash
+pip install torch==2.8.0 torchvision==0.23.0 --index-url https://download.pytorch.org/whl/cu124
+```
+
+**4. Install project dependencies:**
+
+```bash
 pip install -r requirements.txt
 ```
 
-For training, install [MS-Swift](https://github.com/modelscope/ms-swift):
+**5. Install FlashAttention (recommended for faster training/inference):**
+
 ```bash
-pip install ms-swift[llm]
+pip install flash-attn==2.8.3 --no-build-isolation
 ```
+
+**6. For training, install MS-Swift:**
+
+```bash
+pip install ms-swift[llm]>=3.10.0
+```
+
+### Verified Package Versions
+
+The following versions have been tested and confirmed to work together:
+
+| Package | Version |
+|---------|---------|
+| Python | 3.10 |
+| torch | 2.8.0 |
+| torchvision | 0.23.0 |
+| transformers | 4.57.1 |
+| accelerate | 1.10.1 |
+| peft | 0.17.1 |
+| ms-swift | 3.10.0 |
+| vllm | 0.11.0 |
+| datasets | 3.6.0 |
+| deepspeed | 0.18.1 |
+| flash-attn | 2.8.3 |
+| scikit-learn | 1.7.2 |
+| qwen-vl-utils | 0.0.14 |
+| pandas | 2.3.3 |
+| numpy | 2.1.2 |
+| Pillow | 11.3.0 |
 
 ## Dataset
 
@@ -118,7 +186,6 @@ pip install ms-swift[llm]
 | Tasks | 46 |
 | Languages | 9 (ar, bn, de, en, es, hi, ro, ru, zh) |
 | Splits | train / test / val |
-| Test samples with judge scores | 44,370 / 46,401 (95.6%) |
 
 ### Dataset Fields
 
@@ -353,59 +420,60 @@ python llm_judge/compute_final_summary.py
 .
 ├── README.md
 ├── requirements.txt
+├── assets/                                # Figures and diagrams
 ├── configs/
-│   └── slurm_template.sh              # SLURM job template (H200/A100)
+│   └── slurm_template.sh                 # SLURM job template (H200/A100)
 ├── data/
-│   ├── download_dataset.py             # Download from HuggingFace
+│   ├── download_dataset.py                # Download from HuggingFace
 │   └── preprocessing/
-│       ├── unify_labels.py             # Label normalization
-│       ├── filter_empty_text.py        # Remove empty-text samples
-│       ├── ocr_extraction.py           # EasyOCR text extraction
+│       ├── unify_labels.py                # Label normalization
+│       ├── filter_empty_text.py           # Remove empty-text samples
+│       ├── ocr_extraction.py              # EasyOCR text extraction
 │       └── generate_dataset_statistics.py
 ├── explanations/
-│   ├── run_pipeline.sh                 # Full explanation pipeline
-│   ├── generate_explanations.py        # GPT-4.1 batch generation
+│   ├── run_pipeline.sh                    # Full explanation pipeline
+│   ├── generate_explanations.py           # GPT-4.1 batch generation
 │   ├── submit_batches.py
 │   ├── retrieve_results.py
 │   ├── retrieve_and_parse.py
-│   ├── merge_results.py               # Merge into datasets
-│   ├── batch_processor.py             # Azure batch API handler
-│   ├── config.py                       # Dataset configurations
-│   └── task_definitions.json           # Task-specific prompts
+│   ├── merge_results.py                   # Merge into datasets
+│   ├── batch_processor.py                 # Azure batch API handler
+│   ├── config.py                          # Dataset configurations
+│   └── task_definitions.json              # Task-specific prompts
 ├── instructions/
-│   ├── expand_instructions_gpt.py      # GPT-4.1 instruction expansion
-│   ├── expand_instructions_gemini.py   # Gemini instruction expansion
-│   ├── add_native_labels.py            # Native language labels
+│   ├── expand_instructions_gpt.py         # GPT-4.1 instruction expansion
+│   ├── expand_instructions_gemini.py      # Gemini instruction expansion
+│   ├── add_native_labels.py               # Native language labels
 │   └── append_instructions_to_datasets.py
 ├── training/
 │   ├── format_conversion/
-│   │   ├── convert_seq_cls.py          # Seq classification format
-│   │   └── convert_with_explanations.py # Explanation formats
+│   │   ├── convert_seq_cls.py             # Seq classification format
+│   │   └── convert_with_explanations.py   # Explanation formats
 │   ├── baselines/
-│   │   ├── train_text_bert.py          # BERT multilingual baseline
-│   │   └── train_image_vit.py          # ViT baseline
+│   │   ├── train_text_bert.py             # BERT multilingual baseline
+│   │   └── train_image_vit.py             # ViT baseline
 │   ├── seq_cls/
-│   │   └── generate_train_scripts.py   # Per-dataset training scripts
+│   │   └── generate_train_scripts.py      # Per-dataset training scripts
 │   ├── memelens/
-│   │   ├── train_stage1_classification.sh  # Stage I: classification
-│   │   └── train_stage2_explanation.sh     # Stage II: explanation
+│   │   ├── train_stage1_classification.sh # Stage I: classification
+│   │   └── train_stage2_explanation.sh    # Stage II: explanation
 │   └── adapter_merging/
-│       ├── merge_adapters.py           # TIES/DARE/Linear merging
+│       ├── merge_adapters.py              # TIES/DARE/Linear merging
 │       ├── merge_adapters.sh
 │       └── merge_lora.sh
 ├── inference/
-│   ├── demo.py                         # Quick inference demo
-│   ├── run_memelens.sh                 # Full MemeLens inference
-│   ├── run_zero_shot.sh                # Zero-shot evaluation
+│   ├── demo.py                            # Quick inference demo
+│   ├── run_memelens.sh                    # Full MemeLens inference
+│   ├── run_zero_shot.sh                   # Zero-shot evaluation
 │   └── merge_explanations_into_results.py
 ├── evaluation/
-│   ├── compute_metrics.py              # F1, accuracy, confusion matrix
-│   ├── generate_summary.py             # Excel summary across datasets
-│   └── score_all.sh                    # Score all results
+│   ├── compute_metrics.py                 # F1, accuracy, confusion matrix
+│   ├── generate_summary.py                # Excel summary across datasets
+│   └── score_all.sh                       # Score all results
 └── llm_judge/
-    ├── compute_final_summary.py        # Aggregate GPT-5 + Gemini scores
+    ├── compute_final_summary.py           # Aggregate GPT-5 + Gemini scores
     ├── gpt5/
-    │   ├── run_judge_full.py           # Async parallel evaluation
+    │   ├── run_judge_full.py              # Async parallel evaluation
     │   ├── submit_batches.py
     │   ├── retrieve_results.py
     │   ├── merge_results.py

@@ -25,6 +25,7 @@ trained_models/
 # IDE
 .vscode/
 .idea/
+.claude/s
 
 # OS
 .DS_Store
