@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Environment
+.env
+*.env
+.venv/
+venv/
+
+# Data (downloaded separately)
+data/memelens/
+
+# Results & checkpoints
+results/
+scores/
+trained_models/
+*.ckpt
+*.safetensors
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+nohup.out
+*.log

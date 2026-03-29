@@ -1,0 +1,93 @@
+{
+  "abuse_bn__BanglaAbuseMeme": "Task definition: Abusive content classification in Bengali memes. Given a meme image and Bengali text, the label indicates whether the meme contains abusive, insulting, or harassing language or imagery versus non-abusive content. The explanation should clearly justify why the meme is labeled as abusive or non-abusive using both textual and visual cues.",
+
+  "sarcasm_bn__BanglaAbuseMeme": "Task definition: Sarcasm detection in Bengali memes. Given a meme image and Bengali text, the label indicates whether the meme conveys sarcasm or irony versus literal meaning. The explanation should highlight contradictions, exaggerated tone, or mismatches between image and text.",
+
+  "sentiment_bn__BanglaAbuseMeme": "Task definition: Sentiment classification in Bengali memes. Given a meme image and Bengali text, the label represents the sentiment polarity expressed (e.g., positive, negative, neutral as defined by the dataset). The explanation should describe how visual expressions and wording convey this sentiment.",
+
+  "vulgar_bn__BanglaAbuseMeme": "Task definition: Vulgarity detection in Bengali memes. Given a meme image and Bengali text, the label indicates whether the meme contains vulgar, obscene, or profane expressions versus clean content. The explanation should point to explicit language, gestures, or imagery.",
+
+  "deepfake_ro__RoMemes": "Task definition: Deepfake image classification in Romanian memes. Given a meme image and any associated text, the label indicates whether the image content is manipulated or synthetic (deepfake) versus authentic. The explanation should mention visual inconsistencies, artifacts, or contextual implausibility.",
+
+  "emotion_ro__RoMemes": "Task definition: Emotion classification in Romanian memes. Given a meme image and Romanian text, the label corresponds to one of the predefined emotion categories in the dataset. The explanation should describe facial expressions, scenes, and wording that convey the labeled emotion.",
+
+  "political_ro__RoMemes": "Task definition: Political content detection in Romanian memes. Given a meme image and Romanian text, the label indicates whether the meme is political and possibly which political category applies. The explanation should reference political figures, ideologies, slogans, or symbols.",
+
+  "sentiment_ro__RoMemes": "Task definition: Sentiment classification in Romanian memes. Given a meme image and Romanian text, the label reflects the sentiment polarity or category defined in the dataset. The explanation should connect tone, expressions, and context to the labeled sentiment.",
+
+  "Harmful_en__HarMeme": "Task definition: Harmfulness classification in English memes. Given a meme image and English text, the label represents the level or presence of harmful content (as defined by the dataset labels). The explanation should clarify why the content is considered harmful or harmless, citing specific cues.",
+
+  "Harmful_Covid_en__HarMeme": "Task definition: COVID-19 related harmfulness detection in English memes. Given a meme image and English text, the label indicates whether the meme spreads harmful, misleading, or stigmatizing COVID-related content. The explanation should reference misinformation, fear appeals, or stigmatization.",
+
+  "Target_en__HarMeme": "Task definition: Target identification in harmful English memes. Given a meme image and English text, the label identifies the target of the harmful content (e.g., individual, group, institution). The explanation should clearly identify the target and how it is depicted.",
+
+  "Target_Covid_en__HarMeme": "Task definition: Target identification in COVID-related harmful English memes. Given a meme image and English text, the label specifies who or what is targeted in the COVID context. The explanation should justify the target using textual references and imagery.",
+
+  "Hateful_en__Multi3Hate": "Task definition: Hate speech detection in English memes. Given a meme image and English text, the label indicates whether the meme contains hateful content targeting a protected or non-protected group. The explanation should highlight slurs, dehumanization, or hostile framing.",
+
+  "Hateful_de__Multi3Hate": "Task definition: Hate speech detection in German memes. Given a meme image and German text, the label indicates hateful versus non-hateful content. The explanation should describe linguistic and visual indicators of hate.",
+
+  "Hateful_es__Multi3Hate": "Task definition: Hate speech detection in Spanish memes. Given a meme image and Spanish text, the label represents hateful or non-hateful content. The explanation should justify the label using clear evidence.",
+
+  "Hateful_hi__Multi3Hate": "Task definition: Hate speech detection in Hindi memes. Given a meme image and Hindi text, the label indicates hateful versus non-hateful content. The explanation should reference derogatory language or targeting cues.",
+
+  "Hateful_zh__Multi3Hate": "Task definition: Hate speech detection in Chinese memes. Given a meme image and Chinese text, the label indicates hateful versus non-hateful content. The explanation should connect the label to specific textual or visual hostility.",
+
+  "Hateful_bn__MUTE": "Task definition: Hate and offensive content classification in Bengali memes. Given a meme image and Bengali text, the label reflects hateful or non-hateful content according to the dataset’s definitions. The explanation should describe insults, stereotypes, or targeted hostility.",
+
+  "Hateful_ar__Prop2Hate-Meme": "Task definition: Hate speech detection in Arabic memes. Given a meme image and Arabic text, the label indicates hateful versus non-hateful content. The explanation should justify the label using both visual symbolism and linguistic cues.",
+
+  "propoganda_ar_ArMeme": "Task definition: Propaganda technique classification in Arabic memes. Given a meme image and Arabic text, the label identifies the specific propaganda technique used (from the dataset’s label set). The explanation should explicitly name the technique and explain how the meme employs it.",
+
+  "humour_en__memotion": "Task definition: Humor classification in English memes. Given a meme image and English text, the label reflects whether and how humor is expressed. The explanation should describe the joke structure, visual irony, or punchline.",
+
+  "sarcasm_en__memotion": "Task definition: Sarcasm classification in English memes. Given a meme image and English text, the label indicates sarcastic versus non-sarcastic expression. The explanation should focus on irony and contradiction.",
+
+  "offensive_en__memotion": "Task definition: Offensiveness detection in English memes. Given a meme image and English text, the label indicates whether the meme is offensive. The explanation should clarify what makes the content offensive.",
+
+  "motivational_en__memotion": "Task definition: Motivational content classification in English memes. Given a meme image and English text, the label indicates motivational or non-motivational content. The explanation should describe encouragement or inspirational messaging.",
+
+  "overall_sentiment_en__memotion": "Task definition: Overall sentiment classification in English memes. Given a meme image and English text, the label represents the overall sentiment category. The explanation should connect emotional tone and imagery.",
+
+  "intention_detection_en__MET_Meme": "Task definition: Intention detection in English memes. Given a meme image and English text, the label indicates the creator’s communicative intent (e.g., mock, praise, criticize). The explanation should justify the intent using context.",
+
+  "intention_detection_zh__MET_Meme": "Task definition: Intention detection in Chinese memes. Given a meme image and Chinese text, the label indicates the intended communicative goal. The explanation should ground the intent in visual and textual signals.",
+
+  "metaphor_occurrence_en__MET_Meme": "Task definition: Metaphor detection in English memes. Given a meme image and English text, the label indicates whether metaphorical meaning is used. The explanation should describe the metaphor mapping.",
+
+  "metaphor_occurrence_zh__MET_Meme": "Task definition: Metaphor detection in Chinese memes. Given a meme image and Chinese text, the label indicates metaphorical versus literal meaning. The explanation should justify the metaphor.",
+
+  "offensiveness_detection_en__MET_Meme": "Task definition: Offensiveness detection in English memes. Given a meme image and English text, the label indicates whether the content is offensive. The explanation should clearly justify the offensiveness.",
+
+  "offensiveness_detection_zh__MET_Meme": "Task definition: Offensiveness detection in Chinese memes. Given a meme image and Chinese text, the label indicates offensive versus non-offensive content. The explanation should cite specific cues.",
+
+  "sentiment_category_en__MET_Meme": "Task definition: Sentiment category classification in English memes. Given a meme image and English text, the label corresponds to a sentiment category. The explanation should link visual tone and wording.",
+
+  "sentiment_category_zh__MET_Meme": "Task definition: Sentiment category classification in Chinese memes. Given a meme image and Chinese text, the label corresponds to a sentiment category. The explanation should justify the category selection.",
+
+  "sentiment_degree_en__MET_Meme": "Task definition: Sentiment intensity classification in English memes. Given a meme image and English text, the label reflects sentiment strength. The explanation should explain why the sentiment is weak or strong.",
+
+  "sentiment_degree_zh__MET_Meme": "Task definition: Sentiment intensity classification in Chinese memes. Given a meme image and Chinese text, the label reflects sentiment strength. The explanation should justify the intensity.",
+
+  "misogynous_en__MAMI": "Task definition: Misogyny detection in English memes. Given a meme image and English text, the label indicates misogynistic versus non-misogynistic content. The explanation should identify sexist hostility.",
+
+  "objectification_en__MAMI": "Task definition: Objectification detection in English memes. Given a meme image and English text, the label indicates objectification of women. The explanation should describe objectifying portrayals.",
+
+  "shaming_en__MAMI": "Task definition: Shaming detection in English memes. Given a meme image and English text, the label indicates shaming behavior. The explanation should identify ridicule or moral judgment.",
+
+  "stereotype_en__MAMI": "Task definition: Stereotype detection in English memes. Given a meme image and English text, the label indicates gender stereotypes. The explanation should clarify the stereotype used.",
+
+  "violence_en__MAMI": "Task definition: Violence detection in English memes. Given a meme image and English text, the label indicates violent or threatening content. The explanation should highlight threats or violent imagery.",
+
+  "Misogyny_hi_en__MIMIC2024": "Task definition: Misogyny detection in Hindi–English memes. Given a meme image and Hinglish text, the label indicates misogynistic versus non-misogynistic content. The explanation should justify the label.",
+
+  "Misogyny_Categories_hi_en__MIMIC2024": "Task definition: Misogyny category classification in Hindi–English memes. Given a meme image and Hinglish text, the label identifies the specific misogyny category. The explanation should clearly map content to the category.",
+
+  "Hateful_en__MMHS": "Task definition: Fine-grained hate speech classification in English memes. Given a meme image and English text, the label indicates the hate category or target. The explanation should identify the targeted group and hate cues.",
+
+  "Hateful_en__MIMIC_Islamophpbia": "Task definition: Islamophobia detection in English memes. Given a meme image and English text, the label indicates anti-Muslim hateful content. The explanation should reference stereotypes or hostile framing.",
+
+  "Hateful_en_FHM": "Task definition: Hateful meme classification in English. Given a meme image and English text, the label indicates hateful versus non-hateful content. The explanation should justify the classification.",
+
+  "toxic_ru__Toxic_Memes_Detection_Dataset": "Task definition: Toxicity detection in Russian memes. Given a meme image and Russian text, the label indicates toxic versus non-toxic content. The explanation should identify insults, harassment, or aggression."
+}
