@@ -3,7 +3,7 @@
 **A Unified Multilingual Multitask Explanation-Enhanced Vision Language Model for Meme Understanding**
 
 [![Paper](https://img.shields.io/badge/arXiv-2601.12539-b31b1b.svg)](https://arxiv.org/abs/2601.12539)
-[![Dataset](https://img.shields.io/badge/HuggingFace-Dataset-yellow)](https://huggingface.co/datasets/QCRI/MemeLens-VLM)
+[![Dataset](https://img.shields.io/badge/HuggingFace-Dataset-yellow)](https://huggingface.co/datasets/QCRI/MemeLens)
 [![Model](https://img.shields.io/badge/HuggingFace-Model-blue)](https://huggingface.co/QCRI/MemeLens-VLM)
 [![License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc/4.0/)
 [![Python 3.10](https://img.shields.io/badge/Python-3.10-blue.svg)](https://www.python.org/downloads/)
@@ -178,7 +178,7 @@ The following versions have been tested and confirmed to work together:
 
 ## Dataset
 
-**HuggingFace**: [QCRI/MemeLens-VLM](https://huggingface.co/datasets/QCRI/MemeLens-VLM)
+**HuggingFace**: [QCRI/MemeLens-VLM](https://huggingface.co/datasets/QCRI/MemeLens)
 
 | Statistic | Value |
 |-----------|-------|
